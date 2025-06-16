@@ -18,4 +18,4 @@ jobs:
         server: ftp.zoeharveyphoto.com
         username: ${{ secrets.ftp_username }}
         password: ${{ secrets.ftp_password }}
-        local-dir: "wp-content/themes/"
+        local-dir: "wordpress/wp-content/themes/"
