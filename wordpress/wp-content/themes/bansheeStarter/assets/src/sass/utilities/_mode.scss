@@ -1,0 +1,41 @@
+@use '../abstracts' as *;
+
+/**
+ * mode.scss
+ * Mode Utilities
+ */
+
+/**
+* Light / Dark Mode
+*/
+
+.u-darkMode {
+  color: swatch('White');
+
+  blockquote {
+    color: swatch('White');
+  }
+
+  a:not(.btn), li:not(.btn) a {
+    color: swatch('White');
+    &:hover {
+      color: swatch('Secondary');
+    }
+  }
+
+  li.btn a {
+    color: swatch('Neutral');
+    &:hover {
+      color: swatch('Neutral');
+    }
+  }
+}
+
+.u-lightMode {
+  color: swatch('Neutral');
+
+  blockquote,
+  a {
+    color: swatch('Primary');
+  }
+}
