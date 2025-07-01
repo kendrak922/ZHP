@@ -1,13 +1,13 @@
 === Contact Form by Bit Form: Multi Step Form, Calculation Contact Form, Payment Contact Form & Custom Contact Form builder ===
 Plugin Name: Contact Form by Bit Form: Multi Step Form, Calculation Contact Form, Payment Contact Form & Custom Contact Form builder
-Version: 2.18.8
-Stable tag: 2.18.8
+Version: 2.20.0
+Stable tag: 2.20.0
 Author: Contact form builder by Bit form
 Author URI: https://www.bitapps.pro/
-Contributors: bitpressadmin, arif25897, mdrhmaruf, mdabbasuddin 
+Contributors: bitpressadmin, arif25897, mdrhmaruf, mdabbasuddin, akaioum 
 Tags: contact form, form, contact forms, forms, form builder
 Requires at least: 5.0
-Tested up to: 6.7.2
+Tested up to: 6.8.1
 Requires PHP: 7.4
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -544,6 +544,64 @@ Yes, Bit Form has built-in spam protection better than any other Contact Form Bu
 6. Response table to view form entries
 
 == Changelog ==
+= 2.20.0 =
+*Release Date: 30 June, 2025*
+*New:
+    1. Advanced Date-Time Field: Introduced a new field type that lets users select both date and time, improving form flexibility and user experience.
+    2. New Smart Tags (Functions): Added ${_bf_datetime_difference()} and ${_bf_add_subtract_datetime()} smart tags to support date and time calculations.
+    3. New Conditional Action: Added a "Config Option" action in conditional logic to dynamically change Date-Time field config based on user input.
+
+*Improvements:
+    1. Enhanced Logic for Date/Time Fields: Improved conditional logic support for Date, Time, Week, and Month fields, enabling more advanced scenarios.
+
+*Fix:
+    1. Fixed an issue with mismatched created time format in the entries table based on site date/time format settings.
+    2. Resolved PayPal transaction ID mismatch issue in the entry details section.
+    3. Fixed a signature file path issue in multi-step forms.
+    4. Resolved a frontend data view & edit issue related to edit access control.
+
+= 2.19.2 =
+*Release Date: 15 June, 2025*
+*Improvements:
+    1. Security Enhancements: Prevented JavaScript injection in field content areas such as labels, sub-titles, and helper texts within the form builder.
+    2. Conditional Logic: Added "Clone Condition & Logic" feature to enhance usability and speed up logic configuration.
+
+*Fix:
+    1. Fixed an issue with form JavaScript generation when the any form is also included in the footer section.
+
+= 2.19.1 =
+*Release Date: 29 May, 2025*
+*New:
+    1. Form Auto Fill Feature: Added a feature that automatically fills form fields in form preview with user data, streamlining the user experience and reducing manual entry.
+
+*Improvements:
+    1. Nonce Verification Improved: Enhanced nonce verification for better security and cache issue.
+
+*Fix:
+    1. HTML Escaping in Single Entry View: Fixed an issue where HTML tags were not properly escaped, ensuring correct display in the Single Entry View.
+
+= 2.19.0 =
+*Release Date: 20 May, 2025*
+*New:
+    1. Global validation messages: Added new settings under App Settings to globally customize validation error/invalid messages.
+    2. Bricks Builder Widget: Introduced the Bit Form widget for Bricks Builder, enabling easy form embedding.
+
+*Improvements:
+    1. "Other" Option Label: Added setting to customize the label of the "Other..." option in Checkbox and Radio fields.
+    2. Elementor & Gutenberg Widgets: Improved form rendering behavior when switching forms in the Bit Form selection dropdown.
+
+*Fix:
+    1. PayPal Integration: Resolved PayPal transaction ID mismatch issue.
+
+= 2.18.9 =
+*Release Date: 10 May, 2025*
+*Improvements:
+    1. Email Notifications: Added an option to send admin and user email notifications upon "Admin Review" status in WP Auth (User Registration).
+    2. HTML Rendering: Improved rendering of user-defined custom HTML in the HTML field and form field content.
+
+*Fix:
+    1. Fixed an issue where smart tags values were not visible in email and PDF templates.
+
 = 2.18.8 =
 *Release Date: 26 April, 2025*
 *Fix:

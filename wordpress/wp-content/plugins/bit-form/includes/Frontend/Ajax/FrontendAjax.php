@@ -9,6 +9,7 @@ use BitCode\BitForm\Core\Database\FormEntryMetaModel;
 use BitCode\BitForm\Core\Database\FormEntryModel;
 use BitCode\BitForm\Core\Util\FieldValueHandler;
 use BitCode\BitForm\Core\Util\FrontendHelpers;
+use BitCode\BitForm\Core\Util\Log;
 use BitCode\BitForm\Core\Util\MailNotifier;
 use BitCode\BitForm\Core\WorkFlow\WorkFlow;
 use BitCode\BitForm\Frontend\Form\FrontendFormManager;
@@ -28,14 +29,14 @@ final class FrontendAjax
     add_action('wp_ajax_nopriv_bitforms_before_submit_validate', [$this, 'beforeSubmittedValidate']);
     add_action('wp_ajax_nopriv_bitforms_trigger_workflow', [$this, 'triggerWorkFlow']);
     add_action('wp_ajax_bitforms_trigger_workflow', [$this, 'triggerWorkFlow']);
-    add_action('wp_ajax_bitforms_onload_added_field', [$this, 'addHiddenField']);
-    add_action('wp_ajax_nopriv_bitforms_onload_added_field', [$this, 'addHiddenField']);
+    add_action('wp_ajax_bitforms_onload_added_field_and_property', [$this, 'addHiddenFieldAndProperty']);
+    add_action('wp_ajax_nopriv_bitforms_onload_added_field_and_property', [$this, 'addHiddenFieldAndProperty']);
   }
 
   public function beforeSubmittedValidate()
   {
     $form_id = str_replace('bitforms_', '', $_POST['bitforms_id']);
-    $FrontendFormManager = new FrontendFormManager($form_id);
+    $FrontendFormManager = FrontendFormManager::getInstance($form_id);
     $FrontendFormManager->fieldNameReplaceOfPost();
     $validateStatus = $FrontendFormManager->beforeSubmittedValidate();
     if (is_wp_error($validateStatus)) {
@@ -49,7 +50,7 @@ final class FrontendAjax
   {
     \ignore_user_abort();
     $form_id = str_replace('bitforms_', '', $_POST['bitforms_id']);
-    $FrontendFormManager = new FrontendFormManager($form_id);
+    $FrontendFormManager = FrontendFormManager::getInstance($form_id);
     $submitSatus = $FrontendFormManager->handleSubmission();
     if (is_wp_error($submitSatus)) {
       do_action('bitform_submit_error', $form_id, $submitSatus);
@@ -67,7 +68,7 @@ final class FrontendAjax
     $entryToken = sanitize_text_field($_REQUEST['entryToken']);
     $GLOBALS['bf_entry_id'] = $entryId;
     if (Helpers::validateEntryTokenAndUser($entryToken, $entryId) || FrontendHelpers::is_current_user_can_access($form_id, 'entryEditAccess')) {
-      $FrontendFormManager = new FrontendFormManager($form_id);
+      $FrontendFormManager = FrontendFormManager::getInstance($form_id);
       $updateStatus = $FrontendFormManager->handleUpdateEntry();
       if (is_wp_error($updateStatus)) {
         do_action('bitform_update_error', $form_id, $updateStatus);
@@ -93,7 +94,7 @@ final class FrontendAjax
         'value' => $tokens['t_identity'],
       ]
     ];
-    $frontendFormManger = new FrontendFormManager($formId);
+    $frontendFormManger = FrontendFormManager::getInstance($formId);
     if ($frontendFormManger->isHoneypotActive()) {
       $time = time();
       $honeypodFldName = Helpers::honeypotEncryptedToken("_bitforms_{$formId}_{$time}_");
@@ -105,7 +106,17 @@ final class FrontendAjax
     return $fields;
   }
 
-  public function addHiddenField()
+  public function hiddenPropeties($formId)
+  {
+    $properties = [];
+    $properties[] = [
+      'name'  => 'nonce',
+      'value' => wp_create_nonce('bitforms_' . $formId),
+    ];
+    return $properties;
+  }
+
+  public function addHiddenFieldAndProperty()
   {
     \ignore_user_abort();
     $request = file_get_contents('php://input');
@@ -115,7 +126,8 @@ final class FrontendAjax
         wp_send_json_error('Form Id not found', 400);
       } else {
         $fields = $this->hiddenFields($data->formId);
-        wp_send_json_success(['hidden_fields'=>$fields]);
+        $properties = $this->hiddenPropeties($data->formId);
+        wp_send_json_success(['hidden_fields'=>$fields, 'hidden_properties'=>$properties]);
       }
     }
   }
@@ -130,7 +142,7 @@ final class FrontendAjax
       if (isset($request->id, $request->cronNotOk)) {
         $formID = str_replace('bitforms_', '', $request->id);
         if (!wp_verify_nonce($request->token, $request->id) && is_user_logged_in()) {
-          error_log('wp_verify_nonce failed for formID=' . $formID . ' Token=' . $request->token . ' ID=' . $request->id);
+          Log::debug_log('wp_verify_nonce failed for formID=' . $formID . ' Token=' . $request->token . ' ID=' . $request->id);
           wp_send_json_error();
         }
         $cronNotOk = $request->cronNotOk;
@@ -145,15 +157,15 @@ final class FrontendAjax
           );
           if ($queueudEntry) {
             if (!empty($queueudEntry[0]->response_obj) && \strpos($queueudEntry[0]->response_obj, 'processed') > 0) {
-              error_log('Cron Not Ok[2]Already Processed');
+              Log::debug_log('Cron Not Ok[2]Already Processed');
               wp_send_json_error();
             }
           } else {
-            error_log('Cron Not Ok[2]Query Entry data not found');
+            Log::debug_log('Cron Not Ok[2]Query Entry data not found');
             wp_send_json_error();
           }
         } else {
-          error_log('Cron Not Ok[2](Log Id) data not found');
+          Log::debug_log('Cron Not Ok[2](Log Id) data not found');
           wp_send_json_error();
         }
         $trnasientData = get_transient("bitform_trigger_transient_{$entryID}");
@@ -164,7 +176,7 @@ final class FrontendAjax
         } else {
           $formManager = new AdminFormManager($formID);
           if (!$formManager->isExist()) {
-            error_log('provided form does not exists');
+            Log::debug_log('provided form does not exists');
             return wp_send_json(new WP_Error('trigger_empty_form', __('provided form does not exists', 'bit-form')));
           }
           $formEntryModel = new FormEntryModel();
@@ -179,7 +191,7 @@ final class FrontendAjax
           );
 
           if (!$formEntry) {
-            error_log('provided form entries does not exists. EntryId=' . $entryID . ', FormId=' . $formID);
+            Log::debug_log('provided form entries does not exists. EntryId=' . $entryID . ', FormId=' . $formID);
             return new WP_Error('trigger_empty_form', __('provided form entries does not exists', 'bit-form'));
           }
           $formEntryMeta = $entryMeta->get(
@@ -263,14 +275,14 @@ final class FrontendAjax
             );
           }
         } else {
-          error_log('No Trigger Data Found');
+          Log::debug_log('No Trigger Data Found');
         }
       } else {
-        error_log('Cron Not Ok data not found');
+        Log::debug_log('Cron Not Ok data not found');
         wp_send_json_error('Cron Not Ok data found', 400);
       }
     } else {
-      error_log('No Input data found');
+      Log::debug_log('No Input data found');
       wp_send_json_error('Invalid Request', 400);
     }
 

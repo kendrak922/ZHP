@@ -18,15 +18,15 @@ Text Domain:
 // // BASE
 @use 'base';
 
-// // GLOBAL
+// // // GLOBAL
 @use 'global';
 
-// // REUSABLE COMPONENTS
+// // // REUSABLE COMPONENTS
 @use 'components';
 
-// // ALL BLOCKS
-// // - Individual blocks imported into this file
+// // // ALL BLOCKS
+// // // - Individual blocks imported into this file
 @use '../../../template-parts/blocks/_assets/blocks-imports';
 
-// // UTILITY CLASSES
+// // // UTILITY CLASSES
 @use 'utilities';

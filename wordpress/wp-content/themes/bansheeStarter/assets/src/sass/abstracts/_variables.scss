@@ -84,37 +84,39 @@ $map-width-props: (
 /// * COLORS * ///
 //////////////////
 
-$color-primary: #004169;
-$color-secondary: #D1E7EC;
-$color-tertiary: #9A0007;
+$color-primary: #383D28;
+$color-secondary: #8F4521;
+$color-tertiary: #E8979E;
 
 // Basics
-$color-black: #000000;
-$color-white: #F5F9FF;
-$color-neutral: #000000;
+$color-black: #1A1D18;
+$color-white: #FFFFFF;
+$color-neutral: #383D28;
 
 $palette: (
-'Primary': $color-primary,
-  'PrimaryHover': #023352,
-  'PrimaryActive':#023352,
+  'Primary': $color-primary,
+  'PrimaryHover': #9B904E,
+  'PrimaryActive':#9B904E,
   'Secondary': $color-secondary,
   'SecondaryHover': #D6D6D6,
   'SecondaryActive': #D6D6D6,
   'Tertiary': $color-tertiary,
   // Text color
   'Neutral': $color-primary,
-  'LightNeutral' : #F6F7F9,
+  'LightNeutral' : #F8E5CB,
+  'Cream' : #F8E5CB,
   // Style Guide
-  "DarkBlue" : #004169,
-  "LightBlue" : #D1E7EC,
-  'Red': #9A0007,
-  'Green': #ACB568,
-  'LightGreen': #CBD19D,
+  'Brown' : #8F4521,
+  "LightBlue" : #808CA7,
+  'Red': #C24224,
+  'Pink': #E8979E,
+  'Green': #383D28,
+  'LightGreen': #9B904E,
   'Gray' : gray,
   'Black': $color-black,
   'White': $color-white,
-  'Success': #ACB568,
-  'Error': #9A0007,
+  'Success': #9B904E,
+  'Error': #C24224,
 );
 
 
@@ -137,11 +139,11 @@ $font-weight-heavy: 900;
 
 // Font Stack
 $font-stack-primary: (
-  'Instrument Sans',
+  'Hina Mincho',
   sans-serif
 );
 $font-stack-secondary: (
-  'DM Serif Display',
+  'Aboreto',
   'Helvetica',
   serif
 );
@@ -225,7 +227,7 @@ $block-padding-mobile: 3rem; // 48
 ///////////////////////
 
 $domain: (
-  'local': 'zhp.lndo.site',
+  'local': 'youarehere.lndo.site',
 );
 
 //********************************

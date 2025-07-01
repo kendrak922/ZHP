@@ -92,16 +92,7 @@ endif;?> <?php echo isset($button['button_file']) && $button['button_file'] ? 'd
         <span>
             <?php echo $label; ?>
         </span>
-        <svg width="31" height="20" viewBox="0 0 31 20" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-            <rect width="31" height="20" fill="url(#pattern0_197_329)"/>
-            <defs>
-                <pattern id="pattern0_197_329" patternContentUnits="objectBoundingBox" width="1" height="1">
-                    <use xlink:href="#image0_197_329" transform="matrix(0.00606061 0 0 0.00939394 0 -0.0166667)"/>
-                </pattern>
-                <image id="image0_197_329" width="165" height="110" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAKUAAABuCAYAAABGBNOtAAAACXBIWXMAAAsSAAALEgHS3X78AAAEBUlEQVR4nO3d3VFTURiF4fU53scOpAPogHQgHRgrECsAKxAqUCsQKiBUoHQQOoAKthebzKCELxxyzv59n0tImH2xZu0sBhILIQjTMLOjEMJF7nPU5k3uAzTu2Mz+mNlB7oPUhFBOb1/S0syOcx+kFoQyjZmkb2Z2YWbvch+mdIQyrQ+SVmY2z32QkhHK9GaSrszsLPdBSkUo8/nMCNqMUObFCNqAUObHCPoPoSwHI+gBoSwLI0iEslRdjyBCWa5uRxChLNt6BC17GkGEsg6HiiPoKPdBUiCU9ZhJ+mVmZ623JqGsz2fF15rNjiBCWad9Sb9bHUGEsm5NjiBCWb/mRhChbENTI4hQtqWJEUQo21P9CCKU7ap2BBHKtlU5gghl+6obQYSyH9WMIELZlypGEKHsU9EjiFD2q9gRRCj7th5BP0pqTUIJSfooqZj/CSKUWHuvOIJOcx+EUOJ/Jw8jaC/XAQglNjlUvM6zjCBCiedkG0GEEtskH0GEEi+RdAQRSgyRZAQRSgw1+QgilHiNSUcQocQuJhlBhBK7Gn0EEUqMZbQRRCgxplFGkEk6kNT12xlP6EBxFPTop6TjEMLd0CeapLmkq7FPBEi6lbQIISyHPInrG1N6r/jBAqdDnkQokcLJwwcL7L3kwYQSqewrjqDFtgcSSqQ0k/R926erEUrk8EGxNeebvkkokcuzI4hQIrcnI4hQogT/jCBCiVLMJC3M7B2hRCm+hhDmIYS7t7lPgu7dSjoKIfxZf4GmRE4/JR08DqQk0ZTI4V7xDzUuNn2TpkRq14rtuDGQEqFEWusxs/IexPWNFJ6MGQ9NialtHDMemhJTcceMh6bEFLaOGQ+hxNheNGY8XN8Yy6Ax46EpMYbBY8ZjkvYkLcb4YXhiofjHrK169ZjxWAhhzJ+HR8xsqfiuES26VgzkauwfzPWN1/iy65jxMHQwxI1iO47y2vE5NCVe6lzSfOpASjQltptkzHgIJTzXir97HPzOabvg+sZz1mMmaSAlmhJPJRkzHpoSjyUbMx6aElKGMeMhlMgyZjxc333LNmY8NGWfso8ZD03ZnyLGjIem7EdRY8ZDKPtQ3JjxcH237V6FjhkPTdmuoseMh6Zs03kIYbT/mUmNpmzLveJrx2Xug+yCpmzHpaS92gMpEcoWrMdMNet6G67vulU7Zjw0Zb2qHjMemrI+TYwZD01Zl2bGjIdQ1qG5MePh+i5fk2PGQ1OWrdkx46Epy9T8mPHQlOXpYsx4CGU5uhozHq7vMnQ3Zjw0ZX5fexwzHpoyn1vFdlzmPkhpaMo8LhXfuH6Z+yAlIpRp3Uv6xJjxcX2nc6P4u8dV7oOUjqZMYz1mVrkPUgOaclorSae8dhzmL0QJmlpoPXOfAAAAAElFTkSuQmCC"/>
-            </defs>
-        </svg>
-
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--!Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.--><path d="M438.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-160-160c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L338.8 224 32 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l306.7 0L233.4 393.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l160-160z"/></svg>
     <?php else:
         if (isset($button['button_icon'])) :
             Load::atom(

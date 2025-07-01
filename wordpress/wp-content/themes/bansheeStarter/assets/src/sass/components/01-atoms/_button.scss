@@ -7,7 +7,7 @@
 /********************************
 	Atom: Button
 ********************************/
-$buttonRadius : 0;
+$buttonRadius : 50px;
 $btnDefault: (
 	'textColor': swatch('LightNeutral'),
 	'bgColor': swatch('Primary'),
@@ -40,7 +40,7 @@ $btnWhite: (
 @mixin btnNormalize() {
 	@include font.font-appearance();
 	background: transparent;
-	border: none;
+	text-align: center;
 	border-radius: $buttonRadius;
 	box-shadow: none;
 	cursor: pointer;
@@ -55,12 +55,13 @@ $btnWhite: (
 @mixin btn($button: $btnDefault) {
 	& {
 	@include btnNormalize();
+	text-decoration: none;
 	background-color: map.get($button, 'bgColor');
 	border-radius: $buttonRadius;
 	color: map.get($button, 'textColor');
 	display: inline-flex;
+	text-align: center;
 	font-family: $font-stack-primary;
-	font-size: 1rem;
 	font-weight: $font-weight-medium;
 	gap:.5rem;
 	letter-spacing: kern(60);
@@ -216,7 +217,7 @@ $btnSolidDefault: (
 );
 // Secondary Colors
 $btnSolidSecondary: (
-	'textColor': swatch('Primary'),
+	'textColor': swatch('LightNeutral'),
 	'bgColor': swatch('Secondary'),
 	'borderColor': swatch('Secondary'),
 	'hoverTextColor': swatch('Primary'),
@@ -243,7 +244,7 @@ $btnSolidWhite: (
 
 .btn--solid,
 .btn--primary {
-		text-decoration: none;
+		@include btnNormalize();
 		@include btnColors($btnSolidDefault);
 		padding: 0.5rem 1rem 0.5rem;
 		border: 0;
@@ -272,7 +273,7 @@ $btnSolidWhite: (
 // 	color: $color-white;
 // }
 .btn--secondary {
-	text-decoration: none;
+	@include btnNormalize();
 	@include btnColors($btnSolidSecondary);
 	padding: 0.5rem 1rem 0.5rem;
 }
@@ -293,12 +294,12 @@ $btnOutline: (
 	'activeBorderColor': swatch('Black'),
 );
 $btnOutlineWhite: (
-	'textColor': swatch('White'),
+	'textColor': swatch('LightNeutral'),
 	'bgColor': transparent,
-	'borderColor': swatch('White'),
+	'borderColor': swatch('LightNeutral'),
 	'hoverTextColor': swatch('Neutral'),
-	'hoverBgColor': swatch('White'),
-	'hoverBorderColor': swatch('White'),
+	'hoverBgColor': swatch('LightNeutral'),
+	'hoverBorderColor': swatch('LightNeutral'),
 	'disabled': swatch('Gray'),
 	'disabledTextColor': swatch('Black'),
 	'activeBgColor': swatch('Pink'),
@@ -360,20 +361,20 @@ $btnOutlineWhite: (
 	Button - Arrow
 ********************************/
 $btnArrow: (
-	'textColor': swatch('Neutral'),
+	'textColor': swatch('Primary'),
 	'bgColor': transparent,
 	'borderColor': transparent,
-	'hoverTextColor': swatch('Primary'),
+	'hoverTextColor': swatch('LightGreen'),
 	'hoverBgColor': transparent,
 	'hoverBorderColor': transparent,
 	'disabled': swatch('Gray'),
 	'disabledTextColor': swatch('Gray'),
 );
 $btnArrowDark: (
-	'textColor': swatch('White'),
+	'textColor': swatch('LightNeutral'),
 	'bgColor': transparent,
 	'borderColor': transparent,
-	'hoverTextColor': swatch('White'),
+	'hoverTextColor': swatch('Pink'),
 	'hoverBgColor': transparent,
 	'hoverBorderColor': transparent,
 	'disabled': swatch('Gray'),
@@ -389,24 +390,34 @@ $btnArrowDark: (
 	line-height: unset;
 	min-height: unset;
 	padding: 0;
-	border-bottom-width: 1px;
 	padding-left: 0!important;
-	text-align: unset;
+	text-align: unset!important;
 	font-weight: $font-weight-medium;
 	text-decoration: none;
-	&:hover{
-		overflow: visible;
-
-	}
 
 	svg {
-		height: 2rem;
-		width: 2rem;
-		@include create-mq($md-width) {
-			height: 2rem;
-			width: 2rem;
+		height: 1rem;
+		width: 1rem;
+		fill: swatch("Neutral") !important;
+			@include create-mq($md-width) {
+			height: 1rem;
+			width: 1rem;
+		}
+		path{
+			stroke: swatch("Neutral") !important;
 		}
 	}
+
+	&:hover{
+		overflow: visible;
+		svg {
+			fill: map.get($btnArrow, 'hoverTextColor')!important;
+			path{
+				stroke: map.get($btnArrow, 'hoverTextColor')!important;
+			}
+		}
+	}
+
 	@include create-mq($md-width) {
 		gap: 0.75rem;
 	}
@@ -421,16 +432,6 @@ $btnArrowDark: (
 		padding: 0;
 	}
 
-	svg path{
-		stroke: swatch("Neutral") !important;
-	}
-
-	.u-darkMode & {
-		@include btnColors($btnArrowDark);
-        svg path{
-            stroke: swatch("White") !important;
-        }
-	}
 
 	&:disabled,
 	&[disabled],
@@ -441,6 +442,27 @@ $btnArrowDark: (
 		color: map.get($btnArrow, 'disabled');
 		opacity: 1;
 		pointer-events: none;
+	}
+}
+.u-darkMode {
+	.btn--text,
+	.btn--arrow {
+		@include btnColors($btnArrowDark);
+		svg path{
+			stroke: swatch("LightNeutral") !important;
+		}
+		svg {
+			fill: swatch("LightNeutral") !important;
+		}
+		&:hover{
+			overflow: visible;
+			svg {
+				fill: map.get($btnArrowDark, 'hoverTextColor')!important;
+				path{
+					stroke: map.get($btnArrowDark, 'hoverTextColor')!important;
+				}
+			}
+		}
 	}
 }
 
@@ -469,7 +491,9 @@ $btnArrowDark: (
 .btn--medium,
 .btn[data-size='medium'] {
 	@include create-mq($md-width) {
-		font-size: $font-base;
+		box-shadow: none;
+		overflow: hidden;
+		font-size: 23px;
 		font-weight: 500;
 		line-height: 1.5;
 		padding: 1rem 2rem;

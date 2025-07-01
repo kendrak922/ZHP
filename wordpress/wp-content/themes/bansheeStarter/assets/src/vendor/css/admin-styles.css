@@ -103,36 +103,41 @@ Add interface colored swatches to ACF picker
   border-color: #ccc;
 }
 
+.acf-radio-list > li > label:has(input[type=radio][value=Cream]) {
+  background-color:  #F8E5CB;
+  border-color: #ccc;
+}
+
 .acf-radio-list > li > label:has(input[type=radio][value=White]) {
-  background-color:  #F5F9FF;
+  background-color:  #FFFFFF;
   border-color: #ccc;
 }
 
 .acf-radio-list > li > label:has(input[type=radio][value=LightBlue]) {
-  background-color: #D1E7EC;
-  border-color: #D1E7EC;
+  background-color: #808CA7;
+  border-color: #808CA7;
 }
 
-.acf-radio-list > li > label:has(input[type=radio][value=DarkBlue]) {
-  background-color: #004169;
-  border-color: #004169;
-  color: #fff;
-}
-
-.acf-radio-list > li > label:has(input[type=radio][value=Red]) {
-  background-color: #9A0007;
-  border-color: #9A0007;
-  color: #fff;
+.acf-radio-list > li > label:has(input[type=radio][value=Pink]) {
+  background-color: #E8979E;
+  border-color: #E8979E;
 }
 
 .acf-radio-list > li > label:has(input[type=radio][value=LightGreen]) {
-  background-color: #CBD19D;
-  border-color: #CBD19D;
+  background-color: #9B904E;
+  border-color: #9B904E;
+}
+
+.acf-radio-list > li > label:has(input[type=radio][value=Brown]) {
+  background-color: #8F4521;
+  border-color: #8F4521;
+  color: #fff;
 }
 
 .acf-radio-list > li > label:has(input[type=radio][value=Green]) {
-  background-color: #ACB568;
-  border-color: #ACB568;
+  background-color: #383D28;
+  border-color: #383D28;
+  color: #fff;
 }
 
 
@@ -142,8 +147,8 @@ Add interface colored swatches to ACF picker
 }
 
 .acf-radio-list > li > label:has(input[type=radio][value=black]) {
-  background-color: #000000;
-  border-color: #000000;
+  background-color: #1A1D18;
+  border-color: #1A1D18;
   color: #fff;
 }
 

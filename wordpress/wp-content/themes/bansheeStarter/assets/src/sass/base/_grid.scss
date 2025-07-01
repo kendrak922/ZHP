@@ -297,16 +297,7 @@
   }
 }
 
-*[data-guides='standard'] {
-  .guides {
-    display: block;
-  }
-}
-*[data-guides='gutters'] {
-  .guides--spaced {
-    display: block;
-  }
-}
+
 ////helper class to reverse column order on mobile
 .column-reverse-mobile {
   &.wp-block-columns {

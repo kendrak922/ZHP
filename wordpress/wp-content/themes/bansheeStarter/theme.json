@@ -46,24 +46,14 @@
       ],
       "fontFamilies": [
         {
-          "fontFamily": "Instrument Sans",
-          "name": "Instrument Sans",
-          "slug": "Instrument Sans"
+          "fontFamily": "Aboreto",
+          "name": "Aboreto",
+          "slug": "aboreto"
         },
         {
-          "fontFamily": "Vina Sans",
-          "name": "Vina Sans",
-          "slug": "vina_sans"
-        },
-        {
-          "fontFamily": "Rouge Script",
-          "name": "Rouge Script",
-          "slug": "rouge_script"
-        },
-        {
-          "fontFamily": "DM Serif Display",
-          "name": "DM Serif Display",
-          "slug": "dm_serif_display"
+          "fontFamily": "Hina Mincho",
+          "name": "Hina Mincho",
+          "slug": "hina_mincho"
         }
       ]
     },
@@ -127,23 +117,13 @@
           ],
           "fontFamilies": [
             {
-              "fontFamily": "Instrument Sans",
-              "name": "Instrument Sans",
-              "slug": "Instrument Sans"
+              "fontFamily": "Aboreto",
+              "name": "Aboreto",
+              "slug": "Aboreto"
             },
             {
-              "fontFamily": "Vina Sans",
-              "name": "Vina Sans",
-              "slug": "vina_sans"
-            },
-            {
-              "fontFamily": "Rouge Script",
-              "name": "Rouge Script",
-              "slug": "rouge_script"
-            },
-            {
-              "fontFamily": "DM Serif Display",
-              "name": "DM Serif Display",
+              "fontFamily": "Hina Mincho",
+              "name": "Hina Mincho",
               "slug": "dm_serif_display"
             }
           ]

@@ -367,14 +367,11 @@ function my_allowed_block_types($allowed_block_types_all, $post)
         'core/list',
         'core/media-text',
         'core/paragraph',
-        'core/post-author-name',
-        'core/post-date',
         'core/post-excerpt',
         'core/post-featured-image',
         'core/post-title',
-        'core/quote',
         'yoast-seo/breadcrumbs',
-        'formidable/simple-form',
+        'visual-portfolio/block' 
     ];
 
     $post_type = get_post_type();

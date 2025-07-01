@@ -20,10 +20,11 @@
                 "White": "White",
                 "Black": "Black",
                 "LightBlue": "Light Blue",
-                "DarkBlue": "Dark Blue",
                 "Red": "Red",
                 "Green": "Green",
-                "LightGreen": "Light Green"
+                "LightGreen": "Light Green",
+                "Cream": "Cream",
+                "Brown": "Brown"
             },
             "default_value": "",
             "return_format": "value",
@@ -701,5 +702,5 @@
     "active": false,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1746625462
+    "modified": 1750871291
 }

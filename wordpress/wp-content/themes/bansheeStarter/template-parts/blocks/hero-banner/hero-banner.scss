@@ -5,16 +5,12 @@
 ******************************/
 section.block--hero-banner {
     background-repeat: no-repeat;
-    background-size: contain;
-    margin-left: 20px;
-    margin-right: 20px;
+    background-size: cover;
+    background-position: center;
 
     @include create-mq($md-width) {
-        margin-left: auto;
-        margin-right: auto;
         min-height: 33rem;
         padding-top: 140px;
-        background-size: cover;
     }
 
     @include create-mq($lg-width) {
@@ -71,11 +67,9 @@ section.block--hero-banner {
     }
 
     &__content {
-        max-width: 560px;
+        max-width: 1000px;
         position: relative;
-        padding: 20px;
         bottom: -64px;
-        // right: 10px;
         margin-bottom: 80px;
         @include create-mq($sm-width) {
             bottom: -80px;

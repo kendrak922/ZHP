@@ -54,13 +54,6 @@ if ($blockData['vertical_padding']) {
     $classes[] = 'block--padding-'.$blockData['vertical_padding'];
 }
 
-if ($blockData['section_edge']) {
-    $section_edge = 'block--edgePattern-wave';
-    if (!empty($block['backgroundColor'])) {
-        $section_edge.'-'.$block['backgroundColor'];
-    }
-    $classes[] = $section_edge;
-}
 ?>
 
 <section id="<?php echo $blockID; ?>" class="block  <?php echo join( ' ', $classes ) ?>">

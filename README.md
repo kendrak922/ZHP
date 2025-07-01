@@ -18,7 +18,6 @@ For info on using the Terraform templates, see the [Terraform README](terraform/
 - create env.php file in the /wordpress directory
   - if copying search lndo and replace with new site url
 - create wp-config.php file in the /wordpress directory
-  - example of env.php and wp-config.php are in bitwarden
 - Run npm install in the theme directory
 - Run composer install in the theme directory
 - Run gulp in the theme directory

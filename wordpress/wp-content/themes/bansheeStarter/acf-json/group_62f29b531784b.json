@@ -256,6 +256,24 @@
             "selected": 0
         },
         {
+            "key": "field_6862b3b42b6c1",
+            "label": "Footer Link",
+            "name": "footer_link",
+            "aria-label": "",
+            "type": "url",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "allow_in_bindings": 0,
+            "placeholder": ""
+        },
+        {
             "key": "field_67a283a35f213",
             "label": "Text",
             "name": "footer_text",
@@ -396,5 +414,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1745975465
+    "modified": 1751299030
 }

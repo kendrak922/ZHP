@@ -29,6 +29,14 @@ class Functions__Header {
       this.totalHeight =
         this.headerHeight + this.headerOffset + this.alertBannerHeight
     }
+
+      /// change z-index when there is a hero banner
+      const homeHero = document.querySelector('.hero-banner');
+      const body = document.querySelector('body');
+        if(homeHero){
+          body.classList.add('has-hero-banner');
+        }
+  
   }
 
   /**
@@ -292,4 +300,8 @@ class Functions__Header {
       this.totalHeight = this.headerHeight + this.headerOffset
     }
   }
+
+
+
+
 }

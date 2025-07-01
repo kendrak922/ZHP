@@ -9,27 +9,29 @@
 * Light / Dark Mode
 */
 
-.u-darkMode {
-  color: swatch('White');
 
-  blockquote {
-    color: swatch('White');
-  }
+  .u-darkMode > header, .block--section.u-darkMode {
+    color: swatch('LightNeutral');
 
-  a:not(.btn), li:not(.btn) a {
-    color: swatch('White');
-    &:hover {
-      color: swatch('Secondary');
+    blockquote {
+      color: swatch('LightNeutral');
     }
-  }
-
-  li.btn a {
-    color: swatch('Neutral');
-    &:hover {
+  
+    a:not(.btn), li:not(.btn) a {
+      color: swatch('LightNeutral');
+      &:hover {
+        color: swatch('Secondary');
+      }
+    }
+  
+    li.btn a {
       color: swatch('Neutral');
+      &:hover {
+        color: swatch('Neutral');
+      }
     }
   }
-}
+
 
 .u-lightMode {
   color: swatch('Neutral');

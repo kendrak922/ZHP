@@ -60,7 +60,7 @@ $blockData['classes'][] = 'container--layout container--'.$blockData['width'];
 <section id="<?php echo $blockID; ?>" class="block block--hero-banner hero-banner <?php echo implode(' ', $blockData['classes']); ?>" style ="<?php echo $style; ?>">
     <div class="container container--ultra-wide grid" style="gap:<?php echo $gap ?>;" data-content-align-x="<?php echo $blockData['content_position'];?>">
  
-        <div class="hero-banner__content u-bgColorLightBlue">
+        <div class="hero-banner__content">
             <InnerBlocks 
                 allowedBlocks="<?php echo esc_attr(wp_json_encode($blocks_allowed)); ?>" 
                 template="<?php echo esc_attr(wp_json_encode($blocks_template)); ?>" 

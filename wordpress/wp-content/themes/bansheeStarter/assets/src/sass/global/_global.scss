@@ -29,19 +29,11 @@
 	position: relative;
 }
 
-body > iframe {
-	//bugherd
-	&[id^='bugherd_embed'] {
-		position: fixed;
-	}
-}
-
 .wrapper{
 	overflow: hidden;
-	background-color: swatch('White');
 }
 
-.u-darkMode {
+.u-darkMode header {
 	background-color: swatch('Black');
 }
 

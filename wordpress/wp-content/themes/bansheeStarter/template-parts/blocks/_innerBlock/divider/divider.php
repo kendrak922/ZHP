@@ -7,7 +7,7 @@
 // BLOCK :: DATA
 $blockID = (!empty($block['anchor']) ? $block['anchor'] : $block['id']);
 $blockData = array(
-    'color' => get_field('theme_colors') ?? 'orange'
+    'color' => get_field('theme_colors') ?? 'green'
 );
 
 

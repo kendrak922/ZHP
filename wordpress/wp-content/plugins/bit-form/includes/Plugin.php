@@ -17,7 +17,7 @@ use BitCode\BitForm\Core\Hooks\Hooks;
 use BitCode\BitForm\Core\Util\Activation;
 use BitCode\BitForm\Core\Util\Deactivation;
 use BitCode\BitForm\Core\Util\Uninstallation;
-use BitCode\BitForm\Widgets\BitFormElementorWidget;
+use BitCode\BitForm\Widgets\RegisterBitFormElementorWidget;
 
 final class Plugin
 {
@@ -37,7 +37,7 @@ final class Plugin
   public function register()
   {
     add_action('plugins_loaded', [$this, 'init_plugin']);
-    add_action('init', [$this, 'load_plugin_textdomain']);
+    add_action('init', [$this, 'localization_setup']);
     (new Activation())->activate();
     (new Deactivation())->register();
     (new Uninstallation())->register();
@@ -175,11 +175,11 @@ final class Plugin
   private function initWidgets()
   {
     if (defined('ELEMENTOR_VERSION')) {
-      new BitFormElementorWidget();
+      new RegisterBitFormElementorWidget();
     }
   }
 
-  public function load_plugin_textdomain()
+  public function localization_setup()
   {
     load_plugin_textdomain('bit-form', false, dirname(BITFORMS_PLUGIN_BASENAME) . '/languages');
   }

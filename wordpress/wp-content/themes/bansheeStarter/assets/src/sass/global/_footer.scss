@@ -18,10 +18,6 @@
 
     a {
         text-decoration: none;
-
-        .icon__new-tab {
-            display: none;
-        }
     }
 
 }
@@ -36,26 +32,15 @@
     position: relative;
     padding-top: 50px;
 
-    &:before {
-        content: '';
-        background-image: url("/wp-content/themes/bansheeStarter/assets/dist/imgs/wavesection-medblue.svg");
-        width: 100%;
-        height: 20px;
-        display: inline-block;
-        position: absolute;
-        background-size: 154;
-        top: -18px;
-    }
-
     //
     // * Logo
     //
     &__logo {
-        max-width: 260px;
         margin: 0 auto;
         @include create-mq($md-width) {
+            grid-column: 2;
             margin-right: auto;
-            max-width: 340px;
+            max-width: 500px;
             text-align: left;
             gap: 45px;
         }
@@ -67,9 +52,12 @@
 
     .container {
         display: grid;
+        grid-row-gap: 20px; 
+        grid-template-columns: auto;
+        grid-column-gap: 20px;
         @include create-mq($lg-width) {
-            grid-template-columns: 340px 500px auto;
-            column-gap: 100px;
+            grid-template-columns: auto 500px 500px auto;
+            grid-column-gap: 60px; 
         }
     }
 
@@ -87,8 +75,16 @@
             padding: 1rem 0;
         }
 
-        a {
-            color: swatch('DarkBlue');
+        a:not(.btn--primary) {
+            color: swatch('Primary');
+            &:hover {
+                color: swatch('Brown');
+            }
+        }
+
+        .btn {
+            display: inline-block;
+            margin-top: 50px;
         }
     }
 
@@ -100,6 +96,7 @@
         margin-top: 40px;
 
         @include create-mq($md-width) {
+            grid-column: 3;
             grid-row-gap: 0;
             justify-content: flex-start;
             align-items: center;
@@ -132,14 +129,13 @@
         display: flex;
         align-items: center;
         margin: 0 auto;
-        max-width: 80%;
         flex-flow: column;
         align-items: center;
         text-align: center;
         gap: 16px;
 
         @include create-mq($md-width) {
-            max-width: 300px;
+            max-width: 500px;
             text-align: left;
             margin-right: auto;
             align-items: flex-end;
@@ -157,11 +153,19 @@
         align-items: center;
         flex-flow: column;
         @include create-mq($md-width) {
+            display: flex;
+            margin-top: 100px;
             flex-flow: row;
+            justify-content: space-between;
             align-items: end;
             grid-row-start: 2;
             grid-column-start: 1;
-            grid-column-end: 4;
+            grid-column-end: 5;
+            padding: 0 60px 20px;
+        }
+
+        .menu-wrapper__content {
+            flex-grow: 1;
         }
 
     }

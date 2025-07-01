@@ -39,19 +39,24 @@
 
 /***** HEADING MIXINS *****/
 @mixin h1() {
-    font-size: 3.5rem!important; //70
+    font-size: 2.5rem!important; 
     line-height: 120%;
     font-weight: 400;
+    @include create-mq($sm-width) {
+        font-size: 3rem!important;
+    }
     @include create-mq($md-width) {
-        font-size: 4.375rem!important; 
-        line-height: 120%;
+        font-size: 5rem!important; //80
     }
 }
 
 @mixin h2() {
-    font-size: 3rem!important; //54
+    font-size: 2rem!important; 
     line-height: 120%;
     font-weight: 400;
+    @include create-mq($sm-width) {
+        font-size: 2.5rem!important;
+    }
     @include create-mq($md-width) {
         font-size: 3.375rem!important; //54
         line-height: 120%;
@@ -59,7 +64,7 @@
 }
 
 @mixin h3() {
-    font-size: 2.25rem!important; //36
+    font-size: 1.75rem!important; //28
     line-height: 2.5rem;
     font-weight: 400;
 }
@@ -78,68 +83,9 @@
     // }
 }
 
-h1,
-.h1,
-.has-h-1-font-size,
-h2,
-.h2,
-.has-h-2-font-size,
-h3,
-.h3,
-.has-h-3-font-size,
-h4,
-.h4,
-.has-h-4-font-size,
-h5,
-.h5{
-    @include default-heading();
-}
-
-h1,
-.h1,
-.wp-block-heading.has-h-1-font-size,
-.wp-block-post-title.has-h-1-font-size {
-    @include h1();
-    &.display-heading {
-        padding-left: 0!important;
-        @include create-mq($md-width) {
-            font-size: 120px!important;
-        }
-    }
-}
-
-h2,
-.h2,
-.wp-block-heading.has-h-2-font-size,
-.wp-block-post-title.has-h-2-font-size{
-    @include h2();
-}
-
-h3,
-.h3,
-.wp-block-heading.has-h-3-font-size,
-.wp-block-post-title.has-h-3-font-size {
-    @include h3();
-}
-
-h4,
-.h4,
-.wp-block-heading.has-h-4-font-size,
-.wp-block-post-title.has-h-4-font-size {
-    @include h4();
-}
-
-h5,
-.h5,
-.wp-block-heading.has-h-5-font-size,
-.wp-block-post-title.has-h-5-font-size  {
-    @include h5();
-}
-
-
 /***** HEADING CLASSES *****/
 body:not(.wp-admin) main,
-.wp-admin .is-root-container{
+.wp-admin .is-root-container, footer{
     h1,
     .h1,
     .has-h-1-font-size,
@@ -379,7 +325,7 @@ p{
 }
 .text-xs {
     font-size: .875rem; //14
-    line-height: 1;
+    line-height: 1.5;
 }
 .text-sm {
     font-size: 1rem; //16
@@ -392,8 +338,8 @@ p{
 }
 
 .text-lg {
-    font-size: 1.25em; //20
-    line-height: 2.25;
+    font-size: 1.25rem; //20
+    line-height: 1.5rem;
 }
 .text-xl {
     font-size: 1.5rem; //24

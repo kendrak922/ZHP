@@ -2,6 +2,7 @@
 
 namespace BitCode\BitForm\Frontend\Form;
 
+use BitCode\BitForm\Admin\Form\AdminFormHandler;
 use BitCode\BitForm\Admin\Form\FrontEndScriptGenerator;
 use BitCode\BitForm\Admin\Form\Helpers;
 use BitCode\BitForm\Core\Database\FormEntryMetaModel;
@@ -81,7 +82,7 @@ final class FrontendFormHandler
     $formUpdateVersion = get_option('bit-form_form_update_version');
     if ($formID) {
       $formIDs[] = $formID;
-      $FrontendFormManager = new FrontendFormManager($formID, 1);
+      $FrontendFormManager = FrontendFormManager::getInstance($formID, 1);
       $formInfo = $FrontendFormManager->getFormInfo();
       $FormIdentifier = esc_js($FrontendFormManager->getFormIdentifier());
       $formContent = $FrontendFormManager->getFormContentWithValue($this->getValuesFromQueryParams());
@@ -125,7 +126,7 @@ final class FrontendFormHandler
       }
       foreach ($bfFrontendFormIds as $index => $formId) {
         $shortCodeCounter = $index + 1;
-        $FrontendFormManager = new FrontendFormManager($formId, $shortCodeCounter);
+        $FrontendFormManager = FrontendFormManager::getInstance($formId, $shortCodeCounter);
         $formInfo = $FrontendFormManager->getFormInfo();
         $FormIdentifier = esc_js($FrontendFormManager->getFormIdentifier());
         $formContent = $FrontendFormManager->getFormContentWithValue($this->getValuesFromQueryParams());
@@ -273,7 +274,7 @@ final class FrontendFormHandler
 
   private function executeOnUserInput($formID, $shortCodeCounter, $fields)
   {
-    $FrontendFormManager = new FrontendFormManager($formID, $shortCodeCounter);
+    $FrontendFormManager = FrontendFormManager::getInstance($formID, $shortCodeCounter);
     $previousValue = $this->getValuesFromQueryParams();
     $formContent = $FrontendFormManager->getFormContentWithValue($previousValue);
     $customCodesExist = strpos(FrontEndScriptGenerator::getCustomCodes($formID)['JavaScript'], 'bfVars');
@@ -344,7 +345,7 @@ final class FrontendFormHandler
     FrontendHelpers::setBfFrontendFormIds($formID);
     $bfFrontendFormIds = FrontendHelpers::$bfFrontendFormIds;
     $shortCodeCounter = count($bfFrontendFormIds);
-    $FrontendFormManager = new FrontendFormManager($formID, $shortCodeCounter);
+    $FrontendFormManager = FrontendFormManager::getInstance($formID, $shortCodeCounter);
 
     if (!$FrontendFormManager->checkStatus()) {
       return  sprintf(__('#%s no. Form is not active', 'bit-form'), $formID);
@@ -378,11 +379,18 @@ final class FrontendFormHandler
     $additional = $formContent->additional;
 
     // $workFlowRunType = $entryId ? 'edit' : 'create';
-    if ($entryId && (get_current_user_id() || is_admin())) {
-      // return  sprintf(__('Sorry!, You cannot edit #%s no form.', 'bit-form'), $formID);
+    if ($entryId && (FrontendHelpers::is_current_user_can_access($formID, 'entryEditAccess'))) {
       $workFlowRunType = 'edit';
-      $fields = $this->setFieldsValue($fields, $formID, $entryId);
+      $adminFormHandler = new AdminFormHandler();
+      $getEntry = $adminFormHandler->getSingleEntry($formID, $entryId);
+      if (FrontendHelpers::is_current_user_can_access($formID, 'entryEditAccess', '', $getEntry->user_id)) {
+        $fields = $this->setFieldsValue($fields, $formID, $entryId);
+      } elseif (!$isAbandoned) {
+        $entryId = false;
+        $workFlowRunType = 'create';
+      }
     } else {
+      $entryId = false;
       $workFlowRunType = 'create';
     }
 

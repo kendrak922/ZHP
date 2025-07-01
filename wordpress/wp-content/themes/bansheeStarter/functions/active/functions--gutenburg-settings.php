@@ -65,12 +65,17 @@ add_theme_support( 'editor-color-palette', array(
     array(
         'name'  => esc_attr__( 'white', 'themeLangDomain' ),
         'slug'  => 'White',
-        'color' => '#F4E9DC',
+        'color' => '#FFFFFF',
+    ),
+    array(
+        'name'  => esc_attr__( 'white', 'themeLangDomain' ),
+        'slug'  => 'Cream',
+        'color' => '#F8E5CB',
     ),
     array(
         'name'  => esc_attr__( 'black', 'themeLangDomain' ),
         'slug'  => 'Black',
-        'color' => '#211B20',
+        'color' => '#1A1D18',
     ),
     array(
         'name'  => esc_attr__( 'light gray', 'themeLangDomain' ),
@@ -80,27 +85,27 @@ add_theme_support( 'editor-color-palette', array(
      array(
         'name'  => esc_attr__( 'brand: light-blue', 'themeLangDomain' ),
         'slug'  => 'LightBlue',
-        'color' => '#D1E7EC',
+        'color' => '#808CA7',
     ),
     array(
-        'name'  => esc_attr__( 'brand: dark-blue', 'themeLangDomain' ),
-        'slug'  => 'DarkBlue',
-        'color' => '#004169;',
+        'name'  => esc_attr__( 'brand: brown', 'themeLangDomain' ),
+        'slug'  => 'Brown',
+        'color' => '#8F4521',
     ),
      array(
-        'name'  => esc_attr__( 'brand: red', 'themeLangDomain' ),
-        'slug'  => 'Red',
-        'color' => '#9A0007',
+        'name'  => esc_attr__( 'brand: pink', 'themeLangDomain' ),
+        'slug'  => 'Pink',
+        'color' => '#E8979E',
     ),
      array(
         'name'  => esc_attr__( 'brand: green', 'themeLangDomain' ),
         'slug'  => 'Green',
-        'color' => '#ACB568',
+        'color' => '#383D28',
     ),
      array(
         'name'  => esc_attr__( 'brand: light-green', 'themeLangDomain' ),
         'slug'  => 'LightGreen',
-        'color' => '#CBD19D',
+        'color' => '#9B904E',
     )   
 ) );
 

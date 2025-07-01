@@ -32,12 +32,12 @@
         height: auto;
 
         img {
-            height: 1.5rem;
+            height: 2.5rem;
             width: auto;
             object-fit: contain;
 
             @include create-mq($lg-width) {
-                height: 2.5rem;
+                height: 4.5rem;
                 transition: height ease-in-out $t-default;
 
                 body.scrolled & {
@@ -69,8 +69,8 @@
 
     // header bar molecule
     &-bar {
-        border-bottom: 2px solid swatch('DarkBlue');
-        background-color: swatch('LightBlue');
+        // border-bottom: 2px solid swatch('Primary');
+        // background-color: swatch('LightBlue');
         &--main {
             .header-bar__wrapper {
                 height: map.get($headerHeight, 'sm');
@@ -118,6 +118,12 @@
             margin-left: 50px;
         }
     }
+    svg {
+        margin: auto;
+        @include create-mq($lg-width) {
+            display: none;
+        }
+    }
 }
 
 .darkModeLogo {
@@ -132,10 +138,33 @@
     .lightModeLogo {
         display: none;
     }
+}
 
-    .header {
-        &-bar {
-            background-color: swatch('Black');
+    .has-hero-banner {
+        header {
+            position: absolute;
         }
+        .page__wrapper {
+            padding-top: 0;
+        }
+    }
+
+.scrolled {
+    .header {
+        background-color: swatch('Cream'); 
+    }
+    .u-darkMode {
+        .header {
+            &--fixed {
+                background-color: swatch('Black');
+            }
+        }
+    }
+}
+
+
+.active--mobileMenu {
+    .header--fixed {
+        background-color: swatch('Green');
     }
 }
