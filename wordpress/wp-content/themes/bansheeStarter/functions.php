@@ -370,6 +370,7 @@ function my_allowed_block_types($allowed_block_types_all, $post)
         'core/post-excerpt',
         'core/post-featured-image',
         'core/post-title',
+        'core/html',
         'yoast-seo/breadcrumbs',
         'visual-portfolio/block' 
     ];
