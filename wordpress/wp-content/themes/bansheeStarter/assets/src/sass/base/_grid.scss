@@ -307,3 +307,11 @@
     }
   }
 }
+
+.no-gap .wp-block-columns {
+  gap: 0;
+}
+
+.some-gap .wp-block-columns {
+  gap: 10px;
+}

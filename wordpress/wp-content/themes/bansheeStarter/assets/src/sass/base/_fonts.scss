@@ -40,7 +40,7 @@
 /***** HEADING MIXINS *****/
 @mixin h1() {
     font-size: 2.5rem!important; 
-    line-height: 120%;
+    line-height: 150%;
     font-weight: 400;
     @include create-mq($sm-width) {
         font-size: 3rem!important;

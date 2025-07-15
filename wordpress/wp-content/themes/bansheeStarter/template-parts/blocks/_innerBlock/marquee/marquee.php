@@ -30,7 +30,7 @@ if (!have_rows('marquee')) {
                 <div class="marquee__item">
                     <?php if($image) : ?>
                         <div class="marquee__item-image">
-                            <img class="skip-lazy" src="<?php echo $image['url']; ?>"  />
+                            <img alt="" height="45px" width="45px" class="skip-lazy" src="<?php echo $image['url']; ?>"  />
                         </div>
                     <?php endif; ?>
                     <div class="marquee__item-text">

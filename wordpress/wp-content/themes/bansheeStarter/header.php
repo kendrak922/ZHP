@@ -36,8 +36,6 @@ if ($header_button_link) {
     <link rel="profile" href="http://gmpg.org/xfn/11" />
     <link rel="pingback" href="<?php bloginfo('pingback_url'); ?>" />
     <meta name="statuscake" /><!-- or -->
-    <script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.js"></script>
-    <script src="https://unpkg.com/imagesloaded@5/imagesloaded.pkgd.min.js"></script>
     <!-- add additional scripts and stylesheets to my_add_theme_scripts() in functions.php -->
     <?php if (is_singular() && get_option('thread_comments')) { wp_enqueue_script('comment-reply');
     } ?>
@@ -80,7 +78,7 @@ if ($header_button_link) {
                                 ;                                ?>
                                 <a href="<?php bloginfo('url'); ?>" class="logo header__logo" aria-label="Link to homepage">
                                     <?php if ($logo) : ?>
-                                        <img class="lightModeLogo" src="<?php echo $logo['url']; ?>" alt="You Are Here Design">
+                                        <img height="75px" width="150px" class="lightModeLogo" src="<?php echo $logo['url']; ?>" alt="You Are Here Design">
                                             <?php if ($darkmodeLogo) : ?>
                                                 <img class="darkModeLogo" src="<?php echo $darkmodeLogo['url']; ?>" alt="You Are Here Design">
                                             <?php endif; ?>

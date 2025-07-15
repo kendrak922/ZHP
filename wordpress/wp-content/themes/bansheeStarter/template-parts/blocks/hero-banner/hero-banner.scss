@@ -9,7 +9,7 @@ section.block--hero-banner {
     background-position: center;
 
     @include create-mq($md-width) {
-        min-height: 33rem;
+        height: 33rem;
         padding-top: 140px;
     }
 

@@ -1001,32 +1001,7 @@ class Functions__General {
    * // Within Constructor
    * this.form_listeners();
    */
-  form_listeners = function (parentElement) {
-    let dealershipField = document.querySelectorAll('.dealership_hidden')
 
-    if (dealershipField.length) {
-      dealershipField.forEach((field) => {
-        let thisSearch = field.querySelectorAll('.chosen-search-input'),
-          thisResults = field.querySelectorAll('.chosen-results')
-
-        if (thisSearch.length) {
-          thisSearch.forEach((input) => {
-            input.addEventListener('keyup', () => {
-              if (input.value != '' && input.value.length > 2) {
-                thisResults.forEach((result) => {
-                  result.style.display = 'block'
-                })
-              } else {
-                thisResults.forEach((result) => {
-                  result.style.display = 'none'
-                })
-              }
-            })
-          })
-        }
-      })
-    }
-  }
 
   /**
    * Toggle Event Listers

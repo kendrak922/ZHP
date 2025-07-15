@@ -15,7 +15,7 @@ $footerData = [
         'depth'                => 2,
         'menu_class'        => 'menu menu--footer',
         'walker'            => new bansheeStarter_nav_walker_footer()
-    ],
+    ]
 ];
 
 $button = get_field('button', 'options');
@@ -44,9 +44,9 @@ $footer_link = get_field("footer_link", 'option');
             <div class="footer__logo">
                 <a href="<?php bloginfo('url'); ?>"  aria-label="Link to homepage">
                     <?php if (get_field('global_imagery', 'options')['footer_logo']) : $logo = get_field('global_imagery', 'options')['footer_logo']; ?>
-                            <img src="<?php echo $logo['url']; ?>" alt="Banshee Starter Logo">
+                            <img height="308px" width="550px" src="<?php echo $logo['url']; ?>" alt="Banshee Starter Logo">
                     <?php elseif (file_exists($themeGlobals['theme_rel'] . '/assets/dist/imgs/logo-footer.png')) : ?>
-                            <img src="<?php echo $themeGlobals['theme_url']; ?>/assets/dist/imgs/logo-footer.png" alt="Banshee Starter Logo" class="u-lg-block" />               
+                            <img height="308px" width="550px" src="<?php echo $themeGlobals['theme_url']; ?>/assets/dist/imgs/logo-footer.png" alt="Banshee Starter Logo" class="u-lg-block" />               
                     <?php else : ?>
                             <strong><?php echo bloginfo('title'); ?></strong>
                     <?php endif; ?>
