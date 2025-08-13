@@ -193,6 +193,9 @@
     &__social {
         padding: 0;
         text-align: center;
+        margin-top: 12px;
+        height: 32px;
+        width: 32px;
 
         @include create-mq($md-width) {
             padding-top: 2.5rem;
@@ -211,6 +214,12 @@
                     fill: swatch("Blue");
                 }
             }
+        }
+        
+        img {
+            height: 32px;
+            width: 32px;
+            margin-top: 12px;
         }
 
     }

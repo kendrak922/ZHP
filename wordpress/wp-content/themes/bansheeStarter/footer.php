@@ -63,7 +63,7 @@ $footer_link = get_field("footer_link", 'option');
                                 <?php endif; ?>
                                 <?php if($footer_link) : ?>
                                     <div class="footer__button">
-                                        <a class="btn btn--primary btn--medium" href="<?php echo $footer_link?>" target="_blank">Sign up on substack</a>
+                                        <a class="btn btn--primary btn--medium" href="<?php echo $footer_link?>" target="_blank">Sign up</a>
                                     </div>
                                 <?php endif; ?>
                             </div>
@@ -71,16 +71,22 @@ $footer_link = get_field("footer_link", 'option');
                             <?php /* Footer Menu */ ?>
                             <?php if($socials) : ?>
                                         <div class="footer__social social">
-                                            <h3 class="h3">Follow us</h3>
                                             <nav class="menu--footer menu" aria-label="Social Media Menu">
                                                 <?php foreach($socials as $social) : ?>
                                                         <?php 
                                                             $link = $social['social_link'];
                                                             $title = $social['social_title'];
+                                                            $icon = $social['social_icon'] ?? $social['social_icon']['url'];
                                                         
                                                         ?>
                                                         <a href="<?php echo $link; ?>" target="_blank">
-                                                            <?php echo $title; ?>
+                                                            <?php if (!empty($icon)) {
+                                                                echo '<img src='.$icon['url'].' alt='.$icon['title'].'>';
+                                                            } else {
+                                                                 echo $title;
+                                                            }
+                                                            ?>
+                                                           
                                                         </a>
                                                 <?php endforeach;?>
                                             </nav>

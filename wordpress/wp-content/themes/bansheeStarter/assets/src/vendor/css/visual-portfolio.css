@@ -29,3 +29,7 @@
 .vp-pagination__style-minimal .vp-pagination__item>a:focus, .vp-pagination__style-minimal .vp-pagination__item>a:hover {
     color: black;
 }
+
+.vp-portfolio__items-style-fade .vp-portfolio__item .vp-portfolio__item-img a > img {
+    transform: none!important;
+}

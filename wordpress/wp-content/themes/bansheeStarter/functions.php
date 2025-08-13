@@ -103,10 +103,6 @@ function theme_enqueue_assets()
         wp_enqueue_style($handles['styles_custom']);
     }
 
-    /*** Custom Font Styles ***/
-    wp_register_style('styles_fonts', "https://use.typekit.net/pro6xdj.css");
-    wp_enqueue_style('styles_fonts');
-
     /*** Vendor Scripts ***/
     // if file exists, register & enqueue
     if (file_exists($themeGlobals['theme_rel'] . $paths['scripts_vendor'])) {
