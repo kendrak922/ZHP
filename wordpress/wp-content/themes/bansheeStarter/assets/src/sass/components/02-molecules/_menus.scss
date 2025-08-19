@@ -458,6 +458,7 @@ header .menu-wrapper--main {
   transform: rotate(0deg);
   transition: 0.5s ease-in-out;
   width: 36px;
+  border: 0;
 
   &.menu-open {
     .menu-toggle__icon {
