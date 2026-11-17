@@ -84,39 +84,41 @@ $map-width-props: (
 /// * COLORS * ///
 //////////////////
 
-$color-primary: #383D28;
-$color-secondary: #8F4521;
-$color-tertiary: #E8979E;
+$color-primary: #2C2A32;
+$color-secondary: #945D2C;
+$color-tertiary: #DDA1AC;
 
 // Basics
-$color-black: #1A1D18;
+$color-black: #2C2A32;
 $color-white: #FFFFFF;
-$color-neutral: #383D28;
+$color-neutral: #2C2A32;
 
+// Zoë Harvey Art palette
 $palette: (
   'Primary': $color-primary,
-  'PrimaryHover': #9B904E,
-  'PrimaryActive':#9B904E,
+  'PrimaryHover': #EF541B,
+  'PrimaryActive': #EF541B,
   'Secondary': $color-secondary,
-  'SecondaryHover': #D6D6D6,
-  'SecondaryActive': #D6D6D6,
+  'SecondaryHover': #DC6F23,
+  'SecondaryActive': #DC6F23,
   'Tertiary': $color-tertiary,
   // Text color
   'Neutral': $color-primary,
-  'LightNeutral' : #F8E5CB,
-  'Cream' : #F8E5CB,
+  'LightNeutral' : #F6F3DE,
+  'Cream' : #F6F3DE,
   // Style Guide
-  'Brown' : #8F4521,
-  "LightBlue" : #808CA7,
-  'Red': #C24224,
-  'Pink': #E8979E,
-  'Green': #383D28,
-  'LightGreen': #9B904E,
-  'Gray' : gray,
+  'Brown' : #945D2C,
+  "LightBlue" : #5164B5,
+  'Red': #EF541B,
+  'Orange': #DC6F23,
+  'Pink': #DDA1AC,
+  'Green': #A8AD9A,
+  'LightGreen': #E1E5A6,
+  'Gray' : #A8AD9A,
   'Black': $color-black,
   'White': $color-white,
-  'Success': #9B904E,
-  'Error': #C24224,
+  'Success': #5164B5,
+  'Error': #EF541B,
 );
 
 
@@ -227,7 +229,7 @@ $block-padding-mobile: 3rem; // 48
 ///////////////////////
 
 $domain: (
-  'local': 'youarehere.lndo.site',
+  'local': 'zoeharvey.art',
 );
 
 //********************************

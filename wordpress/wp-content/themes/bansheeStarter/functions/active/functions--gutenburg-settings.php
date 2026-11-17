@@ -68,45 +68,55 @@ add_theme_support( 'editor-color-palette', array(
         'color' => '#FFFFFF',
     ),
     array(
-        'name'  => esc_attr__( 'white', 'themeLangDomain' ),
+        'name'  => esc_attr__( 'cream', 'themeLangDomain' ),
         'slug'  => 'Cream',
-        'color' => '#F8E5CB',
+        'color' => '#F6F3DE',
     ),
     array(
         'name'  => esc_attr__( 'black', 'themeLangDomain' ),
         'slug'  => 'Black',
-        'color' => '#1A1D18',
+        'color' => '#2C2A32',
     ),
     array(
-        'name'  => esc_attr__( 'light gray', 'themeLangDomain' ),
+        'name'  => esc_attr__( 'pale yellow', 'themeLangDomain' ),
         'slug'  => 'light-gray',
-        'color' => '#F2F2EC',
+        'color' => '#E1E5A6',
     ),
      array(
-        'name'  => esc_attr__( 'brand: light-blue', 'themeLangDomain' ),
+        'name'  => esc_attr__( 'brand: blue', 'themeLangDomain' ),
         'slug'  => 'LightBlue',
-        'color' => '#808CA7',
+        'color' => '#5164B5',
     ),
     array(
         'name'  => esc_attr__( 'brand: brown', 'themeLangDomain' ),
         'slug'  => 'Brown',
-        'color' => '#8F4521',
+        'color' => '#945D2C',
     ),
      array(
         'name'  => esc_attr__( 'brand: pink', 'themeLangDomain' ),
         'slug'  => 'Pink',
-        'color' => '#E8979E',
+        'color' => '#DDA1AC',
     ),
      array(
-        'name'  => esc_attr__( 'brand: green', 'themeLangDomain' ),
+        'name'  => esc_attr__( 'brand: sage', 'themeLangDomain' ),
         'slug'  => 'Green',
-        'color' => '#383D28',
+        'color' => '#A8AD9A',
     ),
      array(
-        'name'  => esc_attr__( 'brand: light-green', 'themeLangDomain' ),
+        'name'  => esc_attr__( 'brand: light green', 'themeLangDomain' ),
         'slug'  => 'LightGreen',
-        'color' => '#9B904E',
-    )   
+        'color' => '#E1E5A6',
+    ),
+     array(
+        'name'  => esc_attr__( 'brand: orange', 'themeLangDomain' ),
+        'slug'  => 'Orange',
+        'color' => '#DC6F23',
+    ),
+     array(
+        'name'  => esc_attr__( 'brand: red orange', 'themeLangDomain' ),
+        'slug'  => 'Red',
+        'color' => '#EF541B',
+    )
 ) );
 
 
