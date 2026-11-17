@@ -104,7 +104,7 @@ Add interface colored swatches to ACF picker
 }
 
 .acf-radio-list > li > label:has(input[type=radio][value=Cream]) {
-  background-color:  #F8E5CB;
+  background-color:  #F6F3DE;
   border-color: #ccc;
 }
 
@@ -114,30 +114,42 @@ Add interface colored swatches to ACF picker
 }
 
 .acf-radio-list > li > label:has(input[type=radio][value=LightBlue]) {
-  background-color: #808CA7;
-  border-color: #808CA7;
+  background-color: #5164B5;
+  border-color: #5164B5;
+  color: #F6F3DE;
 }
 
 .acf-radio-list > li > label:has(input[type=radio][value=Pink]) {
-  background-color: #E8979E;
-  border-color: #E8979E;
+  background-color: #DDA1AC;
+  border-color: #DDA1AC;
 }
 
 .acf-radio-list > li > label:has(input[type=radio][value=LightGreen]) {
-  background-color: #9B904E;
-  border-color: #9B904E;
+  background-color: #E1E5A6;
+  border-color: #E1E5A6;
+}
+
+.acf-radio-list > li > label:has(input[type=radio][value=Orange]) {
+  background-color: #DC6F23;
+  border-color: #DC6F23;
+  color: #F6F3DE;
+}
+
+.acf-radio-list > li > label:has(input[type=radio][value=Red]) {
+  background-color: #EF541B;
+  border-color: #EF541B;
+  color: #F6F3DE;
 }
 
 .acf-radio-list > li > label:has(input[type=radio][value=Brown]) {
-  background-color: #8F4521;
-  border-color: #8F4521;
-  color: #fff;
+  background-color: #945D2C;
+  border-color: #945D2C;
+  color: #F6F3DE;
 }
 
 .acf-radio-list > li > label:has(input[type=radio][value=Green]) {
-  background-color: #383D28;
-  border-color: #383D28;
-  color: #fff;
+  background-color: #A8AD9A;
+  border-color: #A8AD9A;
 }
 
 
@@ -147,8 +159,8 @@ Add interface colored swatches to ACF picker
 }
 
 .acf-radio-list > li > label:has(input[type=radio][value=black]) {
-  background-color: #1A1D18;
-  border-color: #1A1D18;
-  color: #fff;
+  background-color: #2C2A32;
+  border-color: #2C2A32;
+  color: #F6F3DE;
 }
 

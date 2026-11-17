@@ -9,7 +9,19 @@
       "defaultPalette": false,
       "background": false,
       "defaultDuotone": false,
-      "text": false
+      "text": false,
+      "palette": [
+        { "name": "Cream", "slug": "cream", "color": "#F6F3DE" },
+        { "name": "White", "slug": "white", "color": "#FFFFFF" },
+        { "name": "Ink", "slug": "black", "color": "#2C2A32" },
+        { "name": "Pale Yellow", "slug": "light-green", "color": "#E1E5A6" },
+        { "name": "Blue", "slug": "light-blue", "color": "#5164B5" },
+        { "name": "Brown", "slug": "brown", "color": "#945D2C" },
+        { "name": "Pink", "slug": "pink", "color": "#DDA1AC" },
+        { "name": "Sage", "slug": "green", "color": "#A8AD9A" },
+        { "name": "Orange", "slug": "orange", "color": "#DC6F23" },
+        { "name": "Red Orange", "slug": "red", "color": "#EF541B" }
+      ]
     },
     "typography": {
       "dropCap": false,
@@ -214,7 +226,7 @@
         },
         "color": {
           "background": "transparent",
-          "text": "#111111"
+          "text": "#2C2A32"
         },
         "border": {
           "radius": "0",

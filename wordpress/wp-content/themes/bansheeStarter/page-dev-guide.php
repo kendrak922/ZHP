@@ -82,22 +82,21 @@ if (has_blocks($templateData['post']->post_content)) {
       <p>Full List:</p>
 
       <ul>
-        <li>Green</li>
-        <li>Olive</li>
-        <li>Neon</li>
-        <li>Teal</li>
-        <li>Blue</li>
-        <li>Pink</li>
-        <li>Purple</li>
-        <li>Lilac</li>
-        <li>Orange</li>
-        <li>Yellow</li>
-        <li>Gray</li>
-        <li>Neutral</li>
-        <li>Black</li>
-        <li>White</li>
-        <li>Error</li>
-        <li>Success</li>
+        <li>Primary (#2C2A32)</li>
+        <li>PrimaryHover (#EF541B)</li>
+        <li>Secondary (#945D2C)</li>
+        <li>SecondaryHover (#DC6F23)</li>
+        <li>Tertiary (#DDA1AC)</li>
+        <li>Cream (#F6F3DE)</li>
+        <li>LightBlue (#5164B5)</li>
+        <li>Orange (#DC6F23)</li>
+        <li>Red (#EF541B)</li>
+        <li>Pink (#DDA1AC)</li>
+        <li>Green (#A8AD9A)</li>
+        <li>LightGreen (#E1E5A6)</li>
+        <li>Brown (#945D2C)</li>
+        <li>Black (#2C2A32)</li>
+        <li>White (#FFFFFF)</li>
       </ul>
 
     </div>
@@ -106,21 +105,20 @@ if (has_blocks($templateData['post']->post_content)) {
 
     $colors = [
       'Primary',
+      'PrimaryHover',
       'Secondary',
+      'SecondaryHover',
       'Tertiary',
-      // Text color
       'Neutral',
-      // Style Guide
-      'Blue',
-      'Teal',
-      'Purple',
-      'Lilac',
+      'LightNeutral',
+      'Cream',
+      'Brown',
+      'LightBlue',
+      'Red',
       'Orange',
-      'Yellow',
-      'Green',
-      'Neon',
-      'Olive',
       'Pink',
+      'Green',
+      'LightGreen',
       'Gray',
       'Black',
       'White',

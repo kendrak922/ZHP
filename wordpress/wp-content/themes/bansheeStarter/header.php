@@ -78,12 +78,12 @@ if ($header_button_link) {
                                 ;                                ?>
                                 <a href="<?php bloginfo('url'); ?>" class="logo header__logo" aria-label="Link to homepage">
                                     <?php if ($logo) : ?>
-                                        <img height="75px" width="150px" class="lightModeLogo" src="<?php echo $logo['url']; ?>" alt="You Are Here Design">
+                                        <img height="75px" width="150px" class="lightModeLogo" src="<?php echo $logo['url']; ?>" alt="Zoë Harvey Art">
                                             <?php if ($darkmodeLogo) : ?>
-                                                <img class="darkModeLogo" src="<?php echo $darkmodeLogo['url']; ?>" alt="You Are Here Design">
+                                                <img class="darkModeLogo" src="<?php echo $darkmodeLogo['url']; ?>" alt="Zoë Harvey Art">
                                             <?php endif; ?>
                                     <?php elseif (file_exists($themeGlobals['theme_rel'] . '/assets/dist/imgs/logo-header.png')) : ?>
-                                        <img src="<?php echo $themeGlobals['theme_url']; ?>/assets/dist/imgs/logo-header.png" alt="You Are Here Design" class="u-hidden u-lg-block" />                                    <?php else : ?>
+                                        <img src="<?php echo $themeGlobals['theme_url']; ?>/assets/dist/imgs/logo-header.png" alt="Zoë Harvey Art" class="u-hidden u-lg-block" />                                    <?php else : ?>
                                         <strong><?php echo bloginfo('title'); ?></strong>
                                        <?php endif; ?>
                                 </a>

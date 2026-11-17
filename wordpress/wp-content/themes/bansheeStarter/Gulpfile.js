@@ -96,16 +96,14 @@ const config = {
 /**
  * COMPILE GLOBAL SASS :: UN-MINIFIED & MINIFIED
  */
-async function styles() {
-    // Define plugins for "PostCSS"
+function stylesExpanded() {
+   // Define plugins for "PostCSS"
     var plugins_expanded = [
         autoprefixer()
     ];
-    var plugins_min = [
-        cssnano()
-    ];
 
-    // Run SASS Task
+    // Write the expanded file on its own. Gulp 5 reuses the vinyl object, so
+    // minifying in the same pipeline overwrites this file before it is flushed.
     return gulp.src( config.css.sass )
         .pipe(plumber({ 
             errorHandler: () => {
@@ -120,14 +118,17 @@ async function styles() {
         .pipe(postcss( plugins_expanded ))
         .pipe(sourcemaps.write()) // Write SCSS maps
         .pipe(rename(config.theme.name + '-custom.css'))
-        .pipe(gulp.dest( config.css.dist )) // DIST un-minified file
-
-        // minify for production
-        .pipe(rename(config.theme.name + '-custom.min.css')) // rename with .min
-        .pipe(postcss( plugins_min )) // minify
-        .pipe(gulp.dest( config.css.dist )); // DIST minified version
-        
+        .pipe(gulp.dest( config.css.dist ));
 }
+
+function stylesMinified() {
+    return gulp.src( config.css.dist + config.theme.name + '-custom.css' )
+        .pipe(postcss([ cssnano() ]))
+        .pipe(rename({ suffix: '.min' }))
+        .pipe(gulp.dest( config.css.dist ));
+}
+
+const styles = gulp.series( stylesExpanded, stylesMinified );
 
 
 /**
@@ -150,7 +151,7 @@ async function styles_vendor() {
 /**
  * COMPILE CUSTOM JS :: UN-MINIFIED & MINIFIED
  */
-async function scripts_global() {
+function scriptsGlobalExpanded() {
 	return gulp.src( config.js.src )
         .pipe(plumber({ 
             errorHandler: () => {
@@ -159,19 +160,23 @@ async function scripts_global() {
             } // on error, send push and exit
         }))
         .pipe(concat(config.theme.name + '-custom.js')) // group files together
-	    .pipe(gulp.dest( config.js.dist )) // DIST un-minified file
+	    .pipe(gulp.dest( config.js.dist ));
+}
 
-	    // minify for production
-	    .pipe(rename(config.theme.name + '-custom.min.js')) // rename with .min
-	    .pipe(uglify()) // minify
-	    .pipe(gulp.dest( config.js.dist )); // DIST minified version
-};
+function scriptsGlobalMin() {
+    return gulp.src( config.js.dist + config.theme.name + '-custom.js' )
+        .pipe(uglify())
+        .pipe(rename({ suffix: '.min' }))
+        .pipe(gulp.dest( config.js.dist ));
+}
+
+const scripts_global = gulp.series( scriptsGlobalExpanded, scriptsGlobalMin );
 
 
 /**
  * COMPILE CUSTOM BLOCKS JS :: UN-MINIFIED & MINIFIED
  */
-async function scripts_blocks() {
+function scriptsBlocksExpanded() {
     return gulp.src( config.js.src_blocks )
         .pipe(plumber({ 
             errorHandler: () => {
@@ -180,19 +185,23 @@ async function scripts_blocks() {
             } // on error, send push and exit
         }))
         .pipe(concat(config.theme.name + '-custom-blocks.js')) // group files together
-        .pipe(gulp.dest( config.js.dist )) // DIST un-minified file
+        .pipe(gulp.dest( config.js.dist ));
+}
 
-        // minify for production
-        .pipe(rename(config.theme.name + '-custom-blocks.min.js')) // rename with .min
-        .pipe(uglify()) // minify
-        .pipe(gulp.dest( config.js.dist )); // DIST minified version
-};
+function scriptsBlocksMin() {
+    return gulp.src( config.js.dist + config.theme.name + '-custom-blocks.js' )
+        .pipe(uglify())
+        .pipe(rename({ suffix: '.min' }))
+        .pipe(gulp.dest( config.js.dist ));
+}
+
+const scripts_blocks = gulp.series( scriptsBlocksExpanded, scriptsBlocksMin );
 
 
 /**
  * COMPILE & MINIFY VENDOR JS
  */
-async function scripts_vendor() {
+function scriptsVendorExpanded() {
     return gulp.src( config.js.src_vendor )
         .pipe(plumber({ 
             errorHandler: () => {
@@ -201,13 +210,17 @@ async function scripts_vendor() {
             } // on error, send push and exit
         }))
         .pipe(concat(config.theme.name + '-vendor.js')) // group files together
-        .pipe(gulp.dest( config.js.dist )) // DIST un-minified file
-
-        // minify for production
-        .pipe(rename(config.theme.name + '-vendor.min.js')) // rename with .min
-        .pipe(uglify()) // minify
-        .pipe(gulp.dest( config.js.dist )); // DIST minified version
+        .pipe(gulp.dest( config.js.dist ));
 }
+
+function scriptsVendorMin() {
+    return gulp.src( config.js.dist + config.theme.name + '-vendor.js' )
+        .pipe(uglify())
+        .pipe(rename({ suffix: '.min' }))
+        .pipe(gulp.dest( config.js.dist ));
+}
+
+const scripts_vendor = gulp.series( scriptsVendorExpanded, scriptsVendorMin );
 
 
 // /**
